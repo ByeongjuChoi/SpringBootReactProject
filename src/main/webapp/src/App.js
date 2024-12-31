@@ -1,10 +1,15 @@
 import React from 'react';
+import Message from "./SampleTest";
+import Login from './Login';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 	return (
-		<div>
-			<h1>React Project</h1>
-		</div>
+		<Router>
+            <Routes>
+                <Route path="/" element={<Login />} />
+            </Routes>
+        </Router>
 	);
 }
 

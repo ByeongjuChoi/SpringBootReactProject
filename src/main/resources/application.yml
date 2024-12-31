@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    #driver-class-name: org.mariadb.jdbc.Driver
+    #url: "jdbc:mysql://127.0.0.1:3307/testdb?autoReconnect=true&&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&tinyInt1isBit=false"
+    url: jdbc:oracle:thin:@//localhost:1521/XE
+    username: system
+    password: 1234
+    hikari:
+      auto-commit: false
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 10
+      maximum-pool-size: 20
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+      pool-name: pool-swtodo
+  jpa:
+    #database-platform: org.hibernate.dialect.MariaDB103Dialect
+    database-platform: org.hibernate.dialect.OracleDialect
+    properties:
+      hibernate:
+        format_sql: true
+        hbm2ddl.auto: update
+        #physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+    open-in-view: false
+    show-sql: true
+  jackson:
+    time-zone: Asia/Seoul
+
+
